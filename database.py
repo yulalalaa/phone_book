@@ -59,6 +59,7 @@ def delete ():
 	connection.commit()
 	connection.close()
 
+<<<<<<< HEAD
 def update ():
 	connection = sqlite3.connect("contacts_book.db")
 	cur = connection.cursor()
@@ -87,10 +88,17 @@ def edit ():
 
 	global editor
 
+=======
+def edit ():
+	connection = sqlite3.connect("contacts_book.db")
+	cur = connection.cursor()
+
+>>>>>>> cb1a1d4351a16ffd58afc48714c3c1085043be6b
 	editor = Tk ()
 	editor.title ("Edit Contact")
 	editor.geometry("300x400")
 
+<<<<<<< HEAD
 	connection = sqlite3.connect("contacts_book.db")
 	cur = connection.cursor()
 
@@ -102,6 +110,16 @@ def edit ():
 	global first_name_editor
 	global last_name_editor
 	global phone_number_editor
+=======
+	'''record_id = delete_box.get()
+	cur.execute ("SELECT * FROM contacts WHERE oid = " + record_id)
+	records = cur.fetchall()
+
+	for record in records:
+		first_name_editor.insert (0, record [0])
+		last_name_editor.insert (0, record [1])
+		phone_number_editor.insert (0, record [2])'''
+>>>>>>> cb1a1d4351a16ffd58afc48714c3c1085043be6b
 
 	first_name_editor = Entry (editor, width = 30)
 	first_name_editor.grid (row =0, column = 1, padx = 20, pady = (10, 0))
@@ -117,12 +135,16 @@ def edit ():
 	phone_number_label = Label (editor, text = "Phone Number")
 	phone_number_label.grid (row = 2, column = 0)
 
+<<<<<<< HEAD
 	for record in records:
 		first_name_editor.insert (0, record [0])
 		last_name_editor.insert (0, record [1])
 		phone_number_editor.insert (0, record [2])
 
 	save_btn = Button (editor, text = "Save Changes", command = update)
+=======
+	save_btn = Button (editor, text = "Save Changes", command = edit)
+>>>>>>> cb1a1d4351a16ffd58afc48714c3c1085043be6b
 	save_btn.grid (row = 3, column = 0, columnspan = 2, pady = 10, padx = 10, ipadx = 40)
 
 # create text boxes
@@ -136,6 +158,10 @@ phone_number.grid (row =2, column = 1)
 delete_box = Entry (root, width = 30)
 delete_box.grid (row = 6, column = 1)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb1a1d4351a16ffd58afc48714c3c1085043be6b
 # create labels
 first_name_label = Label (root, text = "First Name")
 first_name_label.grid (row = 0, column =  0, pady = (10, 0))
@@ -144,9 +170,16 @@ last_name_label.grid (row = 1, column =  0)
 phone_number_label = Label (root, text = "Phone Number")
 phone_number_label.grid (row = 2, column = 0)
 
+<<<<<<< HEAD
 delete_box_label = Label (root, text = "Select ID")
 delete_box_label.grid (row = 6, column = 0, pady = 10, padx = 10)
 
+=======
+delete_box_label = Label (root, text = "Delete ID")
+delete_box_label.grid (row = 6, column = 0, pady = 10, padx = 10)
+
+
+>>>>>>> cb1a1d4351a16ffd58afc48714c3c1085043be6b
 # create submit button
 submit_btn = Button (root, text = "Add Contact", command = submit)
 submit_btn.grid (row = 3, column = 0, columnspan = 2, pady = 10, padx = 10, ipadx = 30)
@@ -168,5 +201,11 @@ connection.commit()
 
 # close connection
 connection.close()
+<<<<<<< HEAD
 
 root.mainloop()
+=======
+
+
+root.mainloop()
+>>>>>>> cb1a1d4351a16ffd58afc48714c3c1085043be6b
